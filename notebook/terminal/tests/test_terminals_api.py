@@ -94,7 +94,6 @@ class TerminalAPITest(NotebookTestBase):
             terminals = self.term_api.list().json()
             if len(terminals) == 1:
                 break
-            time.sleep(1)
 
         r = self.term_api.shutdown('1')
         self.assertEqual(r.status_code, 204)
@@ -104,7 +103,6 @@ class TerminalAPITest(NotebookTestBase):
             terminals = self.term_api.list().json()
             if len(terminals) == 0:
                 break
-            time.sleep(1)
 
     def test_create_terminal_with_name(self):
         # Test creation of terminal via GET against terminals/new/<name>
@@ -136,7 +134,6 @@ class TerminalAPITest(NotebookTestBase):
             terminals = self.term_api.list().json()
             if len(terminals) == 0:
                 break
-            time.sleep(1)
 
         # hit terminals/new/new and ensure that 400 is raised
         with assert_http_error(400):
