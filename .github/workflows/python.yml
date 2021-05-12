@@ -38,16 +38,11 @@ jobs:
     - name: Install the Python dependencies
       run: |
         pip install -e .[test] codecov
+        pip install git+https://github.com/jovyan123-playground/terminado-playground.git@pywinpty_1.0.1
     - name: List installed packages
       run: |
         pip freeze
         pip check
     - name: Run Server-side tests
       run: |
-        pytest -vv --cov notebook --cov-branch --cov-report term-missing:skip-covered --ignore-glob=notebook/tests/selenium/* --ignore-glob=notebook/nbconvert/tests/* --ignore-glob=notebook/services/nbconvert/tests/*
-    - name: Run Integration Tests
-      run: |
-        pytest -v notebook/tests/test_notebookapp_integration.py --integration_tests
-    - name: Coverage
-      run: |
-        codecov
+        pytest -vv notebook/terminal/tests/test_terminals_api.py
