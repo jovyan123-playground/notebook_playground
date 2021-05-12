@@ -45,4 +45,4 @@ jobs:
         pip check
     - name: Run Server-side tests
       run: |
-        pytest -vv notebook/terminal/tests/test_terminals_api.py
+        pytest -vv -s notebook/terminal/tests/test_terminals_api.py
