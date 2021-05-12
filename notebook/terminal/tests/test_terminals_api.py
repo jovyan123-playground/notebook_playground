@@ -91,7 +91,7 @@ class TerminalAPITest(NotebookTestBase):
 
         # Make sure there is 1 terminal running
         terminals = self.term_api.list().json()
-        assert len(terminals) == 1:
+        assert len(terminals) == 1
 
         r = self.term_api.shutdown('1')
         self.assertEqual(r.status_code, 204)
