@@ -120,7 +120,6 @@ for more information.
         'nbconvert',
         'ipykernel', # bless IPython kernel for now
         'Send2Trash>=1.5.0',
-        'terminado>=0.8.3',
         'prometheus_client'
     ],
     extras_require = {
