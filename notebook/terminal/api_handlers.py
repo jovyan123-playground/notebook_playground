@@ -27,6 +27,8 @@ class TerminalHandler(APIHandler):
     @web.authenticated
     @gen.coroutine
     def delete(self, name):
-        yield self.terminal_manager.terminate(name, force=True)
+        finished = yield self.terminal_manager.terminate(name, force=True)
+        if not finished:
+            raise web.HTTPError(500, "Terminal did not finish shutting down")
         self.set_status(204)
         self.finish()
