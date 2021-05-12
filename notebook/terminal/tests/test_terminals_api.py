@@ -90,19 +90,15 @@ class TerminalAPITest(NotebookTestBase):
         self.assertEqual(r.status_code, 204)
 
         # Make sure there is 1 terminal running
-        while True:
-            terminals = self.term_api.list().json()
-            if len(terminals) == 1:
-                break
+        terminals = self.term_api.list().json()
+        assert len(terminals) == 1:
 
         r = self.term_api.shutdown('1')
         self.assertEqual(r.status_code, 204)
 
         # Make sure there are no terminals are running
-        while True:
-            terminals = self.term_api.list().json()
-            if len(terminals) == 0:
-                break
+        terminals = self.term_api.list().json()
+        assert len(terminals) == 0
 
     def test_create_terminal_with_name(self):
         # Test creation of terminal via GET against terminals/new/<name>
