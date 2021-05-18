@@ -38,7 +38,7 @@ jobs:
     - name: Install the Python dependencies
       run: |
         pip install -e .[test] codecov
-        pip install git+https://github.com/jovyan123-playground/terminado-playground.git@pywinpty_1.0.1
+        pip install git+https://github.com/andfoy/terminado.git@pywinpty_1.0.1
     - name: List installed packages
       run: |
         pip freeze
