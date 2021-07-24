@@ -3,7 +3,7 @@
 
 define([
     'jquery',
-    'components/sanitize/index',
+    'components/sanitizer/index',
 ], function($, sanitizer) {
     "use strict";
     
@@ -16,6 +16,10 @@ define([
          * if allow_css is true (default: false), CSS is sanitized as well.
          * otherwise, CSS elements and attributes are simply removed.
          */
+         const options = {};
+         if (!allow_css) {
+             options.allowedStyles = {}
+         }
         return defaultSanitizer.sanitize(html);
     };
 
